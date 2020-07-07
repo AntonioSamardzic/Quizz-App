@@ -1,0 +1,103 @@
+{
+  "user": {
+    "email": "antonio@gmail.com",
+    "password": "antonio"
+  },
+  "QuizzData": [
+    {
+      "id": 0,
+      "question": "What is the original name of Final Fantasy XV?",
+      "answer": "Final Fantasy Versus XIII",
+      "options": [
+        "Final Fantasy: Reborn",
+        "Final Fantasy XVI",
+        "Final Fantasy XIII-3",
+        "Final Fantasy Versus XIII"
+      ]
+    },
+
+    {
+      "id": 1,
+
+      "question": "What is the Roman numeral for 500?",
+      "answer": "D",
+      "options": ["L", "C", "X", "D"]
+    },
+    {
+      "id": 2,
+
+      "question": "What is the molecular formula of Glucose?",
+      "answer": "C6H12O6",
+      "options": ["C2H4O2", "K+", "CH4", "C6H12O6"]
+    },
+    {
+      "id": 3,
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which of the following Ivy League universities has its official motto in Hebrew as well as in Latin?",
+      "answer": "Yale University",
+      "options": [
+        "Princeton University",
+        "Harvard University",
+        "Yale University",
+        "Columbia University"
+      ]
+    },
+    {
+      "id": 4,
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the Italian word for &quot;tomato&quot;",
+      "answer": "Pomodoro",
+      "options": ["Aglio", "Cipolla", "Peperoncino", "Pomodoro"]
+    },
+
+    {
+      "id": 5,
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What was the first company to use the term <<Golden Master>>?",
+      "answer": "Apple",
+      "options": ["Apple", "IBM", "Microsoft", "Google"]
+    },
+    {
+      "id": 6,
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In Telltale Games&#039; &quot;The Walking Dead: Season One&quot; what is the name of Clementine&#039;s father?",
+      "answer": "Ed",
+      "options": ["Ed", "Charles", "Lee", "Walter"]
+    },
+    {
+      "id": 7,
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In ancient Greece, if your job were a &quot;hippeus&quot; which of these would you own?",
+      "answer": "Horse",
+      "options": ["Weave", "Guitar", "Horse", "Boat"]
+    },
+    {
+      "id": 8,
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What does the &quot;MP&quot; stand for in MP3?",
+      "answer": "Moving Picture",
+      "options": ["Moving Picture", "Music Player", "Multi Pass", "Micro Point"]
+    },
+    {
+      "id": 9,
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "When Gmail first launched, how much storage did it provide for your email?",
+      "answer": "1GB",
+      "options": ["512MB", "1GB", "5GB", "Unlimited"]
+    }
+  ]
+}
