@@ -7,7 +7,8 @@ import Axios from "axios"
 // import Login from "./Components/Login"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
-import Alert from "react-bootstrap/Alert"
+import AddQForm from "./Components/AddQForm"
+import AddQ from "./Components/AddQ"
 
 import {
   BrowserRouter as Router,
@@ -23,12 +24,13 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" exact component={Login}>
+        <Route exact path="/" exact component={StartPage}>
           {/* <LoginPage /> */}
         </Route>
-        <Route path="/start" component={HP}></Route>
+        <Route path="/login" component={Login}></Route>
         <PrivateRoute>
           <Route path="/quizz" component={Quizz}></Route>
+          <Route path="/admin" component={Admin}></Route>
           <Route path="/finish" component={Finish}></Route>
         </PrivateRoute>
       </Switch>
@@ -36,11 +38,41 @@ function App() {
   )
 }
 
-function HP() {
+function StartPage() {
   return (
-    <Link to="/quizz">
-      <button className="SGbtn">Start Game</button>
-    </Link>
+    <div>
+      <div>
+        <Link to="/login">
+          <button className="font-bold text-white text-2xl mb-5 bg-blue-700 rounded p-5 shadow-md">
+            Start Your Game
+          </button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/login">
+          <button className=" font-bold text-white text-lg mb-5 bg-red-500 rounded p-2 shadow-md">
+            Log Out
+          </button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/admin">
+          <button className=" font-bold text-blue-800 text-lg mb-5 bg-white rounded p-2 shadow-md">
+            Admin Mode
+          </button>
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+function Admin() {
+  return (
+    <div>
+      <Link to="/admin">
+        <AddQ />
+      </Link>
+    </div>
   )
 }
 
@@ -77,7 +109,7 @@ function PrivateRoute({ children, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: "/",
+              pathname: "/login",
               state: { from: location },
             }}
           />
@@ -87,13 +119,14 @@ function PrivateRoute({ children, ...rest }) {
   )
 }
 
-function Login() {
+export function Login() {
   const [input, setInput] = useState({
     email: "",
     password: "",
   })
 
   const [user, setUser] = useState({})
+
   const [check, setCheck] = useState("")
 
   let history = useHistory()
@@ -148,7 +181,12 @@ function Login() {
           />
         </Form.Group>
         <Form.Group controlId="formBasicCheckbox"></Form.Group>
-        <Button onClick={pass}>Log In</Button>
+        <div className="grid grid-cols-2 gap-6 mt-6">
+          <Button onClick={pass}>Log In</Button>
+          <Link className="ml-2 text-center bg-white rounded p-2" to="/">
+            <button className="font-bold">Back</button>
+          </Link>
+        </div>
       </Form>
     </div>
   )

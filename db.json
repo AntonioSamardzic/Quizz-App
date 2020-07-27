@@ -15,20 +15,27 @@
         "Final Fantasy Versus XIII"
       ]
     },
-
     {
       "id": 1,
-
       "question": "What is the Roman numeral for 500?",
       "answer": "D",
-      "options": ["L", "C", "X", "D"]
+      "options": [
+        "L",
+        "C",
+        "X",
+        "D"
+      ]
     },
     {
       "id": 2,
-
       "question": "What is the molecular formula of Glucose?",
       "answer": "C6H12O6",
-      "options": ["C2H4O2", "K+", "CH4", "C6H12O6"]
+      "options": [
+        "C2H4O2",
+        "K+",
+        "CH4",
+        "C6H12O6"
+      ]
     },
     {
       "id": 3,
@@ -51,9 +58,13 @@
       "difficulty": "medium",
       "question": "What is the Italian word for &quot;tomato&quot;",
       "answer": "Pomodoro",
-      "options": ["Aglio", "Cipolla", "Peperoncino", "Pomodoro"]
+      "options": [
+        "Aglio",
+        "Cipolla",
+        "Peperoncino",
+        "Pomodoro"
+      ]
     },
-
     {
       "id": 5,
       "category": "Science: Computers",
@@ -61,7 +72,12 @@
       "difficulty": "hard",
       "question": "What was the first company to use the term <<Golden Master>>?",
       "answer": "Apple",
-      "options": ["Apple", "IBM", "Microsoft", "Google"]
+      "options": [
+        "Apple",
+        "IBM",
+        "Microsoft",
+        "Google"
+      ]
     },
     {
       "id": 6,
@@ -70,7 +86,12 @@
       "difficulty": "medium",
       "question": "In Telltale Games&#039; &quot;The Walking Dead: Season One&quot; what is the name of Clementine&#039;s father?",
       "answer": "Ed",
-      "options": ["Ed", "Charles", "Lee", "Walter"]
+      "options": [
+        "Ed",
+        "Charles",
+        "Lee",
+        "Walter"
+      ]
     },
     {
       "id": 7,
@@ -79,7 +100,12 @@
       "difficulty": "medium",
       "question": "In ancient Greece, if your job were a &quot;hippeus&quot; which of these would you own?",
       "answer": "Horse",
-      "options": ["Weave", "Guitar", "Horse", "Boat"]
+      "options": [
+        "Weave",
+        "Guitar",
+        "Horse",
+        "Boat"
+      ]
     },
     {
       "id": 8,
@@ -88,16 +114,23 @@
       "difficulty": "easy",
       "question": "What does the &quot;MP&quot; stand for in MP3?",
       "answer": "Moving Picture",
-      "options": ["Moving Picture", "Music Player", "Multi Pass", "Micro Point"]
+      "options": [
+        "Moving Picture",
+        "Music Player",
+        "Multi Pass",
+        "Micro Point"
+      ]
     },
     {
-      "id": 9,
-      "category": "Science: Computers",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "When Gmail first launched, how much storage did it provide for your email?",
-      "answer": "1GB",
-      "options": ["512MB", "1GB", "5GB", "Unlimited"]
+      "question": "jesam li dobro ili sam gotov",
+      "options": [
+        "da",
+        "ne",
+        "da",
+        "da"
+      ],
+      "answer": "da",
+      "id": 9
     }
   ]
 }
