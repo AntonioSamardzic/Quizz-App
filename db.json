@@ -14,13 +14,46 @@
     }
   ],
   "scoreboard": [
-    {
-      "email": "antonio@gmail.com",
-      "score": {
-        "score": 0
-      },
-      "id": 1
-    }
+    [
+      {
+        "x": "antonio@gmail.com",
+        "score": {
+          "score": 2
+        }
+      }
+    ],
+    [
+      {
+        "x": "antonio@gmail.com",
+        "score": {
+          "score": 2
+        }
+      }
+    ],
+    [
+      {
+        "x": "antonio@gmail.com",
+        "score": {
+          "score": 5
+        }
+      }
+    ],
+    [
+      {
+        "x": "bruno@gmail.com",
+        "score": {
+          "score": 4
+        }
+      }
+    ],
+    [
+      {
+        "x": "bruno@gmail.com",
+        "score": {
+          "score": 4
+        }
+      }
+    ]
   ],
   "admin": [
     {
@@ -38,7 +71,7 @@
     "score": 2
   },
   "antonio@gmail.com": {
-    "score": 4
+    "score": 2
   },
   "QuizzData": [
     {

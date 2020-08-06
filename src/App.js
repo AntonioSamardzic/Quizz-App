@@ -82,16 +82,6 @@ function Admin() {
   )
 }
 
-function ScorePost() {
-  return (
-    <div>
-      <Link to="/admin">
-        <AddQ />
-      </Link>
-    </div>
-  )
-}
-
 const fakeAuth = {
   isAuthenticated: false,
   authenticate(cb) {

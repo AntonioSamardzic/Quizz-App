@@ -6,35 +6,31 @@ import { BrowserRouter as Router, Link } from "react-router-dom"
 
 function ScoreBoard() {
   const [user, setUser] = useState([])
-  const [score, setScore] = useState(0)
 
-  let x = JSON.parse(localStorage.getItem("curr"))[0]
-  x = x.email
+  // let x = JSON.parse(localStorage.getItem("curr"))[0]
+  // x = x.email
 
   useEffect(() => {
-    fetch(`http://localhost:3004/bruno@gmail.com`)
+    fetch(`http://localhost:3004/scoreboard`)
       .then((response) => response.json())
       .then((data) => setUser(data))
+    console.log(user)
   }, [])
 
   return (
     <div>
-      <Table striped bordered hover>
+      <Table className="bg-blue-500 text-center  font-semibold" bordered size>
         <thead>
           <tr>
-            <th>Email</th>
-            <th>Score</th>
+            <th>Question</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>antonio@gmail.com</td>
-            <td>{user.score}</td>
-          </tr>
-          <tr>
-            <td>bruno@gmail.com</td>
-            <td>{user.score}</td>
-          </tr>
+          {user.map((data, index) => (
+            <tr key={index}>
+              <td>{data.x}</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
       <Link to="/start">

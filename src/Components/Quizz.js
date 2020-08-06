@@ -49,12 +49,8 @@ function Quizz() {
   const shuffledAnswer = [questions.answer, ...options].sort(
     () => Math.random() - 0.5
   )
-  // let x = JSON.parse(localStorage.getItem("curr"))[0]
-  // x = x.email
-  // const [send, setSend] = useState({
-  //   email: x,
-  //   score,
-  // })
+  let x = JSON.parse(localStorage.getItem("curr"))[0]
+  x = x.email
 
   const id = () => {
     let x = JSON.parse(localStorage.getItem("curr"))[0]
@@ -69,9 +65,11 @@ function Quizz() {
 
     if (newCurrent >= 10) {
       setGameEnded(true)
-      Axios.post(`http://localhost:3004/${x}`, score).then((data) => {
-        console.log(data)
-      })
+      Axios.post(`http://localhost:3004/scoreboard`, [{ x, score }]).then(
+        (data) => {
+          console.log(data)
+        }
+      )
     }
 
     console.log(score.score)
