@@ -19,7 +19,7 @@ function AddQForm() {
       window.location.reload()
     })
   }
-  // const answer_array = options.split(",")
+
   return (
     <Form className="shadow-md mt-auto">
       <Form.Row>

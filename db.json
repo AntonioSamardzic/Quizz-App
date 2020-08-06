@@ -1,7 +1,44 @@
 {
-  "user": {
-    "email": "antonio@gmail.com",
-    "password": "antonio"
+  "user": [
+    {
+      "id": 1,
+      "email": "antonio@gmail.com",
+      "password": "antonio",
+      "score": 0
+    },
+    {
+      "id": 2,
+      "email": "bruno@gmail.com",
+      "password": "bruno",
+      "score": 0
+    }
+  ],
+  "scoreboard": [
+    {
+      "email": "antonio@gmail.com",
+      "score": {
+        "score": 0
+      },
+      "id": 1
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "admin"
+    },
+    {
+      "id": 2,
+      "email": "admine@gmail.com",
+      "password": "admine"
+    }
+  ],
+  "bruno@gmail.com": {
+    "score": 2
+  },
+  "antonio@gmail.com": {
+    "score": 4
   },
   "QuizzData": [
     {
@@ -11,8 +48,7 @@
       "options": [
         "Final Fantasy: Reborn",
         "Final Fantasy XVI",
-        "Final Fantasy XIII-3",
-        "Final Fantasy Versus XIII"
+        "Final Fantasy XIII-3"
       ]
     },
     {
@@ -22,8 +58,7 @@
       "options": [
         "L",
         "C",
-        "X",
-        "D"
+        "X"
       ]
     },
     {
@@ -33,8 +68,7 @@
       "options": [
         "C2H4O2",
         "K+",
-        "CH4",
-        "C6H12O6"
+        "CH4"
       ]
     },
     {
@@ -47,7 +81,6 @@
       "options": [
         "Princeton University",
         "Harvard University",
-        "Yale University",
         "Columbia University"
       ]
     },
@@ -61,8 +94,7 @@
       "options": [
         "Aglio",
         "Cipolla",
-        "Peperoncino",
-        "Pomodoro"
+        "Peperoncino"
       ]
     },
     {
@@ -73,7 +105,6 @@
       "question": "What was the first company to use the term <<Golden Master>>?",
       "answer": "Apple",
       "options": [
-        "Apple",
         "IBM",
         "Microsoft",
         "Google"
@@ -87,7 +118,6 @@
       "question": "In Telltale Games&#039; &quot;The Walking Dead: Season One&quot; what is the name of Clementine&#039;s father?",
       "answer": "Ed",
       "options": [
-        "Ed",
         "Charles",
         "Lee",
         "Walter"
@@ -103,7 +133,6 @@
       "options": [
         "Weave",
         "Guitar",
-        "Horse",
         "Boat"
       ]
     },
@@ -115,21 +144,19 @@
       "question": "What does the &quot;MP&quot; stand for in MP3?",
       "answer": "Moving Picture",
       "options": [
-        "Moving Picture",
         "Music Player",
         "Multi Pass",
         "Micro Point"
       ]
     },
     {
-      "question": "jesam li dobro ili sam gotov",
+      "question": "kako si",
       "options": [
-        "da",
-        "ne",
-        "da",
-        "da"
+        "dobro",
+        " lose",
+        " ok"
       ],
-      "answer": "da",
+      "answer": "supere",
       "id": 9
     }
   ]

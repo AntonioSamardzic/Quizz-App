@@ -3,12 +3,10 @@ import "./App.css"
 import axios from "axios"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Quizz from "./Components/Quizz"
-import Axios from "axios"
-// import Login from "./Components/Login"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
-import AddQForm from "./Components/AddQForm"
 import AddQ from "./Components/AddQ"
+import ScoreBoard from "./Components/ScoreBoard"
 
 import {
   BrowserRouter as Router,
@@ -24,43 +22,51 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" exact component={StartPage}>
+        <Route exact path="/" exact component={Login}>
           {/* <LoginPage /> */}
         </Route>
         <Route path="/login" component={Login}></Route>
+        <Route path="/admin" component={Admin}></Route>
+
         <PrivateRoute>
+          <Route path="/start" component={StartPage}></Route>
+          <Route path="/scoreboard" component={ScoreBoard}></Route>
           <Route path="/quizz" component={Quizz}></Route>
-          <Route path="/admin" component={Admin}></Route>
-          <Route path="/finish" component={Finish}></Route>
         </PrivateRoute>
       </Switch>
     </Router>
   )
 }
-
 function StartPage() {
+  const logout = () => {
+    localStorage.clear()
+    window.location.reload()
+  }
   return (
     <div>
       <div>
-        <Link to="/login">
+        <Link to="/quizz">
           <button className="font-bold text-white text-2xl mb-5 bg-blue-700 rounded p-5 shadow-md">
-            Start Your Game
+            Start The Quizz
           </button>
         </Link>
       </div>
       <div>
-        <Link to="/login">
-          <button className=" font-bold text-white text-lg mb-5 bg-red-500 rounded p-2 shadow-md">
-            Log Out
-          </button>
-        </Link>
+        <button
+          onClick={logout}
+          className=" font-bold text-white text-lg mb-5 bg-red-500 rounded p-2 shadow-md"
+        >
+          Log Out
+        </button>
       </div>
       <div>
-        <Link to="/admin">
-          <button className=" font-bold text-blue-800 text-lg mb-5 bg-white rounded p-2 shadow-md">
-            Admin Mode
-          </button>
-        </Link>
+        <div>
+          <Link to="/scoreboard">
+            <button className=" font-bold text-blue-800 text-lg mb-5 bg-white rounded p-2 shadow-md">
+              See ScoreBoard
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   )
@@ -76,12 +82,11 @@ function Admin() {
   )
 }
 
-const Finish = () => {
+function ScorePost() {
   return (
     <div>
-      <h1>Score 7/10</h1>
-      <Link to="/quizz">
-        <button className="SGbtn">Play Again</button>
+      <Link to="/admin">
+        <AddQ />
       </Link>
     </div>
   )
@@ -125,14 +130,16 @@ export function Login() {
     password: "",
   })
 
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState([])
+  const [admin, setAdmin] = useState([])
 
   const [check, setCheck] = useState("")
 
   let history = useHistory()
   let location = useLocation()
 
-  let { from } = location.state || { from: { pathname: "/quizz" } }
+  let { from } = location.state || { from: { pathname: "/start" } }
+  let { From } = location.state || { From: { pathname: "/admin" } }
 
   let login = () => {
     fakeAuth.authenticate(() => {
@@ -140,17 +147,48 @@ export function Login() {
       history.replace(from)
     })
   }
-  const pass = () => {
-    if (input.email == user.email && input.password == user.password) {
-      login()
+
+  let Alogin = () => {
+    fakeAuth.authenticate(() => {
+      localStorage.setItem("loggedin", true)
+      history.replace(From)
+    })
+  }
+  const adminpass = () => {
+    if (input.email == admin.email && input.password == admin.password) {
+      Alogin()
     } else {
       console.log("error")
+    }
+  }
+  const pass = () => {
+    let curr = []
+    for (let i = 0; i < user.length; i++) {
+      if (
+        user[i].email === input.email &&
+        user[i].password === input.password
+      ) {
+        curr.push(user[i])
+      }
+    }
+
+    if (curr.length > 0) {
+      localStorage.setItem("curr", JSON.stringify(curr))
+      login()
+    } else {
+      alert("Wrong password or email")
     }
   }
 
   useEffect(() => {
     axios.get(`http://localhost:3004/user`).then((response) => {
       setUser(response.data)
+    })
+  }, [])
+
+  useEffect(() => {
+    axios.get(`http://localhost:3004/admin`).then((response) => {
+      setAdmin(response.data)
     })
   }, [])
 
@@ -182,10 +220,19 @@ export function Login() {
         </Form.Group>
         <Form.Group controlId="formBasicCheckbox"></Form.Group>
         <div className="grid grid-cols-2 gap-6 mt-6">
-          <Button onClick={pass}>Log In</Button>
-          <Link className="ml-2 text-center bg-white rounded p-2" to="/">
-            <button className="font-bold">Back</button>
-          </Link>
+          <Button
+            className=" font-bold text-black mb-5 rounded p-2 shadow-md"
+            onClick={pass}
+          >
+            Log In
+          </Button>
+
+          <button
+            onClick={adminpass}
+            className=" font-bold text-blue-800 text-lg mb-5 bg-white rounded p-2 shadow-md"
+          >
+            Admin mode
+          </button>
         </div>
       </Form>
     </div>

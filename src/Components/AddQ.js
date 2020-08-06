@@ -38,7 +38,7 @@ function AddQ() {
             <th>ID</th>
             <th>Question</th>
             <th>Options</th>
-            <th>Correct Answers</th>
+            <th>Correct Answer</th>
           </tr>
         </thead>
         <tbody>

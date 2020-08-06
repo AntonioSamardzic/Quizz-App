@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.options {
+  color: white;
+}
+.options:hover {
+  background-color: aliceblue;
+  color: rgb(17, 17, 105);
+  cursor: pointer;
+}
