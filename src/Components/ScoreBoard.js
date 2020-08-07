@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Table from "react-bootstrap/Table"
 import Axios from "axios"
 import { BrowserRouter as Router, Link } from "react-router-dom"
+import Container from "react-bootstrap/Container"
 
 function ScoreBoard() {
   const [user, setUser] = useState([])
@@ -11,24 +12,27 @@ function ScoreBoard() {
   // x = x.email
 
   useEffect(() => {
-    fetch(`http://localhost:3004/scoreboard`)
+    fetch(`http://localhost:3004/count`)
       .then((response) => response.json())
       .then((data) => setUser(data))
-    console.log(user)
   }, [])
 
   return (
-    <div>
+    <Container className="mt-20" fluid>
       <Table className="bg-blue-500 text-center  font-semibold" bordered size>
         <thead>
           <tr>
+            <th>ID</th>
             <th>Question</th>
+            <th>Options</th>
           </tr>
         </thead>
         <tbody>
-          {user.map((data, index) => (
-            <tr key={index}>
-              <td>{data.x}</td>
+          {user.map((data) => (
+            <tr key={data.id}>
+              <td>{data.id}</td>
+              <td dangerouslySetInnerHTML={{ __html: data.x }}></td>
+              <td dangerouslySetInnerHTML={{ __html: data.score }}></td>
             </tr>
           ))}
         </tbody>
@@ -38,7 +42,7 @@ function ScoreBoard() {
           Back
         </button>
       </Link>
-    </div>
+    </Container>
   )
 }
 

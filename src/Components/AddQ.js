@@ -30,43 +30,45 @@ function AddQ() {
   }
 
   return (
-    <Container className="mt-20" fluid>
-      <AddQForm className=" form"></AddQForm>
-      <Table className="bg-blue-500 text-center  font-semibold" bordered size>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Question</th>
-            <th>Options</th>
-            <th>Correct Answer</th>
-          </tr>
-        </thead>
-        <tbody>
-          {question.map((data) => (
-            <tr key={data.id}>
-              <td>{data.id}</td>
-              <td dangerouslySetInnerHTML={{ __html: data.question }}></td>
-              <td dangerouslySetInnerHTML={{ __html: data.options }}></td>
-              <td dangerouslySetInnerHTML={{ __html: data.answer }}></td>
-              <td>
-                <button
-                  className="bg-white rounded text-black p-1 shadow-md"
-                  onClick={() => handleDelete(data.id)}
-                >
-                  Delete
-                </button>
-                <button onClick={() => handleEdit(data.id)}> Edit</button>
-              </td>
+    <div>
+      <AddQForm className="form"></AddQForm>
+      <Container className="adminTable" fluid>
+        <Table className="bg-blue-500 text-center  font-semibold" bordered size>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Question</th>
+              <th>Options</th>
+              <th>Correct Answer</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
-      <Link to="/">
-        <button className="bg-white text-blue font-bold rounded p-2 shadow-md">
-          Exit Admin Mode
-        </button>
-      </Link>
-    </Container>
+          </thead>
+          <tbody>
+            {question.map((data) => (
+              <tr key={data.id}>
+                <td>{data.id}</td>
+                <td dangerouslySetInnerHTML={{ __html: data.question }}></td>
+                <td dangerouslySetInnerHTML={{ __html: data.options }}></td>
+                <td dangerouslySetInnerHTML={{ __html: data.answer }}></td>
+                <td>
+                  <button
+                    className="bg-white rounded text-black p-1 shadow-md"
+                    onClick={() => handleDelete(data.id)}
+                  >
+                    Delete
+                  </button>
+                  <button onClick={() => handleEdit(data.id)}> Edit</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+        <Link to="/">
+          <button className="bg-white text-blue font-bold rounded p-2 shadow-md">
+            Exit Admin Mode
+          </button>
+        </Link>
+      </Container>
+    </div>
   )
 }
 

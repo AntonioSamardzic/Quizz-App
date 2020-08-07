@@ -21,7 +21,7 @@ function AddQForm() {
   }
 
   return (
-    <Form className="shadow-md mt-auto">
+    <Form className="form">
       <Form.Row>
         <Col>
           <Form.Control

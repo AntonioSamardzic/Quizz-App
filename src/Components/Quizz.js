@@ -12,6 +12,7 @@ function Quizz() {
   const [score, setScore] = useState({
     score: 0,
   })
+
   const [gameEnded, setGameEnded] = useState(false)
 
   useEffect(() => {
@@ -51,6 +52,12 @@ function Quizz() {
   )
   let x = JSON.parse(localStorage.getItem("curr"))[0]
   x = x.email
+  let Score = score.score
+
+  // const [send, setSend] = useState({
+  //   email: x,
+  //   Score: score.score,
+  // })
 
   const id = () => {
     let x = JSON.parse(localStorage.getItem("curr"))[0]
@@ -65,11 +72,9 @@ function Quizz() {
 
     if (newCurrent >= 10) {
       setGameEnded(true)
-      Axios.post(`http://localhost:3004/scoreboard`, [{ x, score }]).then(
-        (data) => {
-          console.log(data)
-        }
-      )
+      Axios.post(`http://localhost:3004/count`, { x, score }).then((data) => {
+        console.log(data)
+      })
     }
 
     console.log(score.score)
@@ -100,7 +105,7 @@ function Quizz() {
       </Link>
     </div>
   ) : (
-    <div className="container">
+    <div className="mainQuizz">
       <h2 className="mb-10 text-center text-white">
         Your Quizz Has Started, Good Luck!
       </h2>

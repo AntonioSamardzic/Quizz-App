@@ -3,68 +3,59 @@
     {
       "id": 1,
       "email": "antonio@gmail.com",
-      "password": "antonio",
-      "score": 0
+      "password": "antonio"
     },
     {
       "id": 2,
       "email": "bruno@gmail.com",
-      "password": "bruno",
-      "score": 0
+      "password": "bruno"
+    },
+    {
+      "id": 3,
+      "email": "ivan@gmail.com",
+      "password": "ivan"
     }
   ],
-  "scoreboard": [
-    [
-      {
-        "x": "antonio@gmail.com",
-        "score": {
-          "score": 2
-        }
-      }
-    ],
-    [
-      {
-        "x": "antonio@gmail.com",
-        "score": {
-          "score": 2
-        }
-      }
-    ],
-    [
-      {
-        "x": "antonio@gmail.com",
-        "score": {
-          "score": 5
-        }
-      }
-    ],
-    [
-      {
-        "x": "bruno@gmail.com",
-        "score": {
-          "score": 4
-        }
-      }
-    ],
-    [
-      {
-        "x": "bruno@gmail.com",
-        "score": {
-          "score": 4
-        }
-      }
-    ]
+  "count": [
+    {
+      "x": "antonio@gmail.com",
+      "score": {
+        "score": 5
+      },
+      "id": 1
+    },
+    {
+      "x": "bruno@gmail.com",
+      "score": 6,
+      "id": 2
+    },
+    {
+      "x": "ivan@gmail.com",
+      "score": {
+        "score": 7
+      },
+      "id": 3
+    },
+    {
+      "x": "antonio@gmail.com",
+      "score": {
+        "score": 10
+      },
+      "id": 4
+    },
+    {
+      "x": "antonio@gmail.com",
+      "score": {
+        "score": 8
+      },
+      "id": 5
+    }
   ],
   "admin": [
     {
       "id": 1,
       "email": "admin@gmail.com",
       "password": "admin"
-    },
-    {
-      "id": 2,
-      "email": "admine@gmail.com",
-      "password": "admine"
     }
   ],
   "bruno@gmail.com": {

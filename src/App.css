@@ -45,3 +45,12 @@
   color: rgb(17, 17, 105);
   cursor: pointer;
 }
+
+.adminTable {
+  background-color: blueviolet;
+  margin-top: 2%;
+}
+
+.form {
+  margin-top: 5%;
+}
