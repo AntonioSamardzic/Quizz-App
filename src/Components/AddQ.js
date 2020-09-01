@@ -5,13 +5,15 @@ import Container from "react-bootstrap/Container"
 import Axios from "axios"
 import AddQForm from "./AddQForm"
 import { BrowserRouter as Router, Link } from "react-router-dom"
+import "react-sticky-header/styles.css"
+import StickyHeader from "react-sticky-header"
 
 function AddQ() {
   const [question, setQuestion] = useState([])
   const [options, setOptions] = useState([])
 
   const handleEdit = (e) => {
-    Axios.get(`http://localhost:3004/QuizzApp/${e}`).then((data) => {
+    Axios.get(`http://localhost:3004/QuizzData/${e}`).then((data) => {
       console.log(data)
     })
   }
@@ -29,11 +31,22 @@ function AddQ() {
     })
   }
 
+  let MyHeader = () => (
+    <StickyHeader
+      // This is the sticky part of the header.
+      header={<AddQForm></AddQForm>}
+    ></StickyHeader>
+  )
+
   return (
     <div>
-      <AddQForm className="form"></AddQForm>
-      <Container className="adminTable" fluid>
-        <Table className="bg-blue-500 text-center  font-semibold" bordered size>
+      <div>{MyHeader()}</div>
+      <div className="form">
+        <Table
+          className=" bg-blue-500 text-center  font-semibold"
+          bordered
+          size
+        >
           <thead>
             <tr>
               <th>ID</th>
@@ -51,23 +64,30 @@ function AddQ() {
                 <td dangerouslySetInnerHTML={{ __html: data.answer }}></td>
                 <td>
                   <button
-                    className="bg-white rounded text-black p-1 shadow-md"
+                    className="bg-red-500 rounded text-black p-1 shadow-md"
                     onClick={() => handleDelete(data.id)}
                   >
                     Delete
                   </button>
-                  <button onClick={() => handleEdit(data.id)}> Edit</button>
+                  <button
+                    className="bg-white rounded text-black p-1 ml-2 shadow-md"
+                    onClick={() => handleEdit(data.id)}
+                  >
+                    {" "}
+                    Edit
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </Table>
-        <Link to="/">
-          <button className="bg-white text-blue font-bold rounded p-2 shadow-md">
-            Exit Admin Mode
-          </button>
-        </Link>
-      </Container>
+      </div>
+
+      <Link to="/">
+        <button className="bg-white text-blue font-bold rounded p-2 mb-10 shadow-md">
+          Exit Admin Mode
+        </button>
+      </Link>
     </div>
   )
 }

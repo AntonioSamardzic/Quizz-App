@@ -18,37 +18,39 @@
   ],
   "count": [
     {
-      "x": "antonio@gmail.com",
-      "score": {
-        "score": 5
-      },
+      "x": "ivan@gmail.com",
+      "s": 4,
       "id": 1
     },
     {
-      "x": "bruno@gmail.com",
-      "score": 6,
+      "x": "antonio@gmail.com",
+      "s": 3,
       "id": 2
     },
     {
-      "x": "ivan@gmail.com",
-      "score": {
-        "score": 7
-      },
+      "x": "bruno@gmail.com",
+      "s": 3,
       "id": 3
     },
     {
-      "x": "antonio@gmail.com",
-      "score": {
-        "score": 10
-      },
+      "x": "bruno@gmail.com",
+      "s": 1,
       "id": 4
     },
     {
       "x": "antonio@gmail.com",
-      "score": {
-        "score": 8
-      },
+      "s": 2,
       "id": 5
+    },
+    {
+      "x": "admin@gmail.com",
+      "s": 3,
+      "id": 6
+    },
+    {
+      "x": "admin@gmail.com",
+      "s": 0,
+      "id": 7
     }
   ],
   "admin": [
@@ -79,21 +81,13 @@
       "id": 1,
       "question": "What is the Roman numeral for 500?",
       "answer": "D",
-      "options": [
-        "L",
-        "C",
-        "X"
-      ]
+      "options": ["L", "C", "X"]
     },
     {
       "id": 2,
       "question": "What is the molecular formula of Glucose?",
       "answer": "C6H12O6",
-      "options": [
-        "C2H4O2",
-        "K+",
-        "CH4"
-      ]
+      "options": ["C2H4O2", "K+", "CH4"]
     },
     {
       "id": 3,
@@ -115,11 +109,7 @@
       "difficulty": "medium",
       "question": "What is the Italian word for &quot;tomato&quot;",
       "answer": "Pomodoro",
-      "options": [
-        "Aglio",
-        "Cipolla",
-        "Peperoncino"
-      ]
+      "options": ["Aglio", "Cipolla", "Peperoncino"]
     },
     {
       "id": 5,
@@ -128,11 +118,7 @@
       "difficulty": "hard",
       "question": "What was the first company to use the term <<Golden Master>>?",
       "answer": "Apple",
-      "options": [
-        "IBM",
-        "Microsoft",
-        "Google"
-      ]
+      "options": ["IBM", "Microsoft", "Google"]
     },
     {
       "id": 6,
@@ -141,11 +127,7 @@
       "difficulty": "medium",
       "question": "In Telltale Games&#039; &quot;The Walking Dead: Season One&quot; what is the name of Clementine&#039;s father?",
       "answer": "Ed",
-      "options": [
-        "Charles",
-        "Lee",
-        "Walter"
-      ]
+      "options": ["Charles", "Lee", "Walter"]
     },
     {
       "id": 7,
@@ -154,11 +136,7 @@
       "difficulty": "medium",
       "question": "In ancient Greece, if your job were a &quot;hippeus&quot; which of these would you own?",
       "answer": "Horse",
-      "options": [
-        "Weave",
-        "Guitar",
-        "Boat"
-      ]
+      "options": ["Weave", "Guitar", "Boat"]
     },
     {
       "id": 8,
@@ -167,21 +145,19 @@
       "difficulty": "easy",
       "question": "What does the &quot;MP&quot; stand for in MP3?",
       "answer": "Moving Picture",
-      "options": [
-        "Music Player",
-        "Multi Pass",
-        "Micro Point"
-      ]
+      "options": ["Music Player", "Multi Pass", "Micro Point"]
+    },
+    {
+      "question": "a",
+      "options": ["a", "a", "a"],
+      "answer": "a",
+      "id": 10
     },
     {
       "question": "kako si",
-      "options": [
-        "dobro",
-        " lose",
-        " ok"
-      ],
-      "answer": "supere",
-      "id": 9
+      "options": ["ok", "e", "e"],
+      "answer": "2",
+      "id": "9"
     }
   ]
 }

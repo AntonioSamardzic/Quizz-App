@@ -21,8 +21,16 @@ function AddQForm() {
   }
 
   return (
-    <Form className="form">
+    <Form className="forma mt-0">
       <Form.Row>
+        <Col>
+          <Form.Control
+            className="shadow-md"
+            placeholder="ID"
+            value={data.id}
+            onChange={(e) => setData({ ...data, id: e.target.value })}
+          />
+        </Col>
         <Col>
           <Form.Control
             className="shadow-md"
@@ -52,7 +60,7 @@ function AddQForm() {
       </Form.Row>
       <button
         disabled={(!data.question, !data.options)}
-        className="mt-2 mb-2 bg-white rounded p-2 text-black shadow-md"
+        className="mt-2   mb-2 bg-green-500 rounded p-2 text-black shadow-md "
         onClick={postData}
       >
         Add Question

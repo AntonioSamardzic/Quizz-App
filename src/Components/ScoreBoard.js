@@ -18,13 +18,13 @@ function ScoreBoard() {
   }, [])
 
   return (
-    <Container className="mt-20" fluid>
-      <Table className="bg-blue-500 text-center  font-semibold" bordered size>
+    <Container fluid>
+      <Table className="bg-blue-400 text-center font-semibold" bordered size>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Question</th>
-            <th>Options</th>
+            <th>E-mail</th>
+            <th>Score</th>
           </tr>
         </thead>
         <tbody>
@@ -32,7 +32,7 @@ function ScoreBoard() {
             <tr key={data.id}>
               <td>{data.id}</td>
               <td dangerouslySetInnerHTML={{ __html: data.x }}></td>
-              <td dangerouslySetInnerHTML={{ __html: data.score }}></td>
+              <td dangerouslySetInnerHTML={{ __html: data.s }}></td>
             </tr>
           ))}
         </tbody>

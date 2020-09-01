@@ -62,6 +62,8 @@ function Quizz() {
   const id = () => {
     let x = JSON.parse(localStorage.getItem("curr"))[0]
     x = x.email
+
+    let s = score.score
     const newCurrent = current + 1
 
     setCurrent(newCurrent)
@@ -72,7 +74,7 @@ function Quizz() {
 
     if (newCurrent >= 10) {
       setGameEnded(true)
-      Axios.post(`http://localhost:3004/count`, { x, score }).then((data) => {
+      Axios.post(`http://localhost:3004/count`, { x, s }).then((data) => {
         console.log(data)
       })
     }
@@ -85,33 +87,25 @@ function Quizz() {
   }
 
   return gameEnded ? (
-    <div className="grid grid-cols-1 gap-6 mt-6">
+    <div className="gameEnded">
       <h1 className="bg-blue-800 text-white p-10 rounded-lg shadow-md">
         your score was {score.score} out of {current}
       </h1>
 
-      <button
-        onClick={reload}
-        className="bg-white text-blue-700 font-semibold rounded p-2 shadow-md"
-      >
+      <button onClick={reload} className="reload">
         Play Again
       </button>
 
-      <Link
-        className="bg-red-300 rounded text-center text-red-700 p-2 shadow-md"
-        to="/start"
-      >
-        <button className="font-bold">Exit Quizz</button>
+      <Link className="" to="/start">
+        <button className="exitQ">Exit Quizz</button>
       </Link>
     </div>
   ) : (
-    <div className="mainQuizz">
-      <h2 className="mb-10 text-center text-white">
-        Your Quizz Has Started, Good Luck!
-      </h2>
-      <div className="bg-blue-800 text-white p-10 rounded-lg shadow-md">
+    <div className="quiz">
+      <h2 className="quizh2">Your Quizz Has Started, Good Luck!</h2>
+      <div className="questions">
         <h2
-          className="text-2xl text-center"
+          className="questionWords"
           dangerouslySetInnerHTML={{ __html: shuffledQuestions }}
         />
       </div>
@@ -125,9 +119,7 @@ function Quizz() {
                 : console.log("krivi")
             }}
             key={index}
-            className={
-              "options p-4 rounded font-semibold shadow-md bg-blue-600"
-            }
+            className={"options"}
             // className={
             //   questions.answer === shuffledAnswer
             //     ? "bg-purple-300 text-white p-4 font-semibold rounded shadow"

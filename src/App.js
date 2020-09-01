@@ -25,10 +25,9 @@ function App() {
         <Route exact path="/" exact component={Login}>
           {/* <LoginPage /> */}
         </Route>
-        <Route path="/login" component={Login}></Route>
-        <Route path="/admin" component={Admin}></Route>
 
         <PrivateRoute>
+          <Route path="/admin" component={Admin}></Route>
           <Route path="/start" component={StartPage}></Route>
           <Route path="/scoreboard" component={ScoreBoard}></Route>
           <Route path="/quizz" component={Quizz}></Route>
@@ -43,43 +42,28 @@ function StartPage() {
     window.location.reload()
   }
   return (
-    <div>
+    <div className="start">
       <div>
         <Link to="/quizz">
-          <button className="font-bold text-white text-2xl mb-5 bg-blue-700 rounded p-5 shadow-md">
-            Start The Quizz
-          </button>
+          <button className="startButtons">Start The Quizz</button>
         </Link>
       </div>
       <div>
-        <button
-          onClick={logout}
-          className=" font-bold text-white text-lg mb-5 bg-red-500 rounded p-2 shadow-md"
-        >
-          Log Out
-        </button>
+        <Link to="/scoreboard">
+          <button className="startButtons">See ScoreBoard</button>
+        </Link>
       </div>
       <div>
-        <div>
-          <Link to="/scoreboard">
-            <button className=" font-bold text-blue-800 text-lg mb-5 bg-white rounded p-2 shadow-md">
-              See ScoreBoard
-            </button>
-          </Link>
-        </div>
+        <button onClick={logout} className="startButtonsLogout">
+          Log Out
+        </button>
       </div>
     </div>
   )
 }
 
 function Admin() {
-  return (
-    <div>
-      <Link to="/admin">
-        <AddQ />
-      </Link>
-    </div>
-  )
+  return <AddQ></AddQ>
 }
 
 const fakeAuth = {
@@ -104,7 +88,7 @@ function PrivateRoute({ children, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: "/",
               state: { from: location },
             }}
           />
@@ -128,31 +112,41 @@ export function Login() {
   let history = useHistory()
   let location = useLocation()
 
-  let { from } = location.state || { from: { pathname: "/start" } }
-  let { From } = location.state || { From: { pathname: "/admin" } }
-
   let login = () => {
+    let { logg } = location.state || { logg: { pathname: "/admin" } }
+    fakeAuth.authenticate(() => {
+      localStorage.setItem("loggedin", true)
+      history.replace(logg)
+    })
+  }
+
+  let alogin = () => {
+    let { from, log } = location.state || {
+      from: { pathname: "/start" },
+      log: { pathname: "/admin" },
+    }
     fakeAuth.authenticate(() => {
       localStorage.setItem("loggedin", true)
       history.replace(from)
     })
   }
 
-  let Alogin = () => {
-    fakeAuth.authenticate(() => {
-      localStorage.setItem("loggedin", true)
-      history.replace(From)
-    })
-  }
-  const adminpass = () => {
-    if (input.email == admin.email && input.password == admin.password) {
-      Alogin()
-    } else {
-      console.log("error")
-    }
-  }
   const pass = () => {
     let curr = []
+
+    for (let i = 0; i < admin.length; i++) {
+      if (
+        admin[i].email === input.email &&
+        admin[i].password === input.password
+      ) {
+        curr.push(admin[i])
+      }
+      if (curr.length > 0) {
+        localStorage.setItem("curr", JSON.stringify(curr))
+        alogin()
+      }
+    }
+
     for (let i = 0; i < user.length; i++) {
       if (
         user[i].email === input.email &&
@@ -160,13 +154,12 @@ export function Login() {
       ) {
         curr.push(user[i])
       }
-    }
-
-    if (curr.length > 0) {
-      localStorage.setItem("curr", JSON.stringify(curr))
-      login()
-    } else {
-      alert("Wrong password or email")
+      if (curr.length > 0) {
+        localStorage.setItem("curr", JSON.stringify(curr))
+        alogin()
+      } else {
+        alert("Wrong password or email")
+      }
     }
   }
 
@@ -179,13 +172,14 @@ export function Login() {
   useEffect(() => {
     axios.get(`http://localhost:3004/admin`).then((response) => {
       setAdmin(response.data)
+      console.log(response.data)
     })
   }, [])
 
   return (
-    <div id="login">
+    <div className="login" id="login">
       <h2 className="text-center">Please Log In</h2>
-      <Form className="col-lg" id="form">
+      <Form id="form">
         <Form.Group controlId="formBasicEmail">
           <Form.Label className="ml-5">Email address</Form.Label>
           <Form.Control
@@ -218,7 +212,7 @@ export function Login() {
           </Button>
 
           <button
-            onClick={adminpass}
+            onClick={pass}
             className=" font-bold text-blue-800 text-lg mb-5 bg-white rounded p-2 shadow-md"
           >
             Admin mode

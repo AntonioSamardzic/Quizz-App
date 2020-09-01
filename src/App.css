@@ -1,56 +1,188 @@
-.App {
-  text-align: center;
+.body {
+  background-image: linear-gradient(
+    to right,
+    rgb(0, 181, 253),
+    rgb(26, 102, 245)
+  );
+  padding: 120px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.start {
+  background-color: brown;
   display: flex;
   flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.startButtons {
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(24, 103, 192);
   color: white;
+  padding: 50px;
+  margin: 5px;
+  align-items: center;
+  border-radius: 10px 10px;
+  justify-content: center;
+  font-weight: bold;
+  font-size: xx-large;
+  transition-duration: 0.4s;
+  transition: transform 100ms;
 }
 
-.App-link {
-  color: #61dafb;
+.startButtons:hover {
+  background-color: #ffffff;
+  color: rgb(24, 103, 192);
+  transform: scale(1.09);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.startButtonsLogout {
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  color: #e94545;
+  padding: 50px;
+  margin: 5px;
+  align-items: center;
+  border-radius: 10px 10px;
+  justify-content: center;
+  font-weight: bold;
+  font-size: large;
+  transition-duration: 0.4s;
+  transition: transform 100ms;
+}
+
+.startButtonsLogout:hover {
+  background-color: #f15757;
+  color: rgb(0, 0, 0);
+  transform: scale(1.09);
+}
+
+.quiz {
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz > .questions {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 50px;
+  margin: 5px;
+  align-items: center;
+  border-radius: 10px 10px 25px 25px;
+}
+
+.questionWords {
+  color: rgb(12, 67, 129);
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.quiz > .quizh2 {
+  margin-right: auto;
+  margin-left: auto;
+  color: aliceblue;
+  text-align: center;
+  justify-content: center;
 }
 
 .options {
   color: white;
+  background-color: rgb(24, 103, 192);
+  padding: 50px;
+  font-size: 28px;
+  transition: transform 100ms;
+  border-radius: 25px;
+  box-shadow: 1px 1px 2px whitesmoke;
 }
+
 .options:hover {
   background-color: aliceblue;
   color: rgb(17, 17, 105);
   cursor: pointer;
+  transform: scale(1.05);
 }
 
 .adminTable {
-  background-color: blueviolet;
   margin-top: 2%;
 }
 
 .form {
-  margin-top: 5%;
+  margin-top: 10%;
+
+  line-height: normal;
+}
+
+.forma {
+  margin-top: 1%;
+  position: sticky;
+  line-height: normal;
+  background-color: rgb(70, 152, 247);
+}
+
+.gameEnded {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reload {
+  background-color: #ffffff; /* Green */
+  border: none;
+  color: rgb(16, 141, 37);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  transition: transform 100ms;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px rgb(48, 47, 47);
+}
+
+.reload:hover {
+  background-color: #91ee96;
+  color: rgb(0, 0, 0);
+  transform: scale(1.05);
+}
+
+.exitQ {
+  background-color: #ffffff; /* Green */
+  border: none;
+  color: rgb(223, 0, 0);
+  padding: 16px 35px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  transition: transform 100ms;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px rgb(44, 44, 44);
+}
+
+.exitQ:hover {
+  background-color: #eb4040;
+  color: rgb(0, 0, 0);
+  transform: scale(1.05);
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
 }
