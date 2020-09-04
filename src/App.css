@@ -8,7 +8,6 @@
 }
 
 .start {
-  background-color: brown;
   display: flex;
   flex-direction: column;
   margin-right: auto;
@@ -58,7 +57,7 @@
 }
 
 .startButtonsLogout:hover {
-  background-color: #f15757;
+  background-color: #ec3a0d;
   color: rgb(0, 0, 0);
   transform: scale(1.09);
 }

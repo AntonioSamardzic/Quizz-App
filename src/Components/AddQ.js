@@ -40,7 +40,7 @@ function AddQ() {
 
   return (
     <div>
-      <div>{MyHeader()}</div>
+      <div></div>
       <div className="form">
         <Table
           className=" bg-blue-500 text-center  font-semibold"
